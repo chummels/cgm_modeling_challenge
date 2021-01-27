@@ -18,7 +18,7 @@ whether you actually want to keep it or not (e.g., too large >1 Mpc or too
 small <1 kpc may not be useful).
 
 USAGE:
-$ ./one_zone.py
+$ python one_zone.py
 '''
 
 # Solar metallicity
