@@ -7,6 +7,20 @@ import sys
 import h5py as h5
 import os
 
+'''
+Run this code from the command line to generate 10 one-zone datasets as well
+as their accompanying ray data and column density values for ions visible
+by COS at z=0.25.  
+
+For each dataset, the code will prompt you to accept it before saving it to 
+file.  Be careful to examine the length of the one-zone dataset to determine 
+whether you actually want to keep it or not (e.g., too large >1 Mpc or too 
+small <1 kpc may not be useful).
+
+USAGE:
+$ ./one_zone.py
+'''
+
 # Solar metallicity
 # Report metallicities in fractional form when possible, but set solar = 0.014 otherwise.
 
@@ -141,7 +155,7 @@ if __name__ == '__main__':
     '''
 
     # Number of desired rays
-    n_rays = 2
+    n_rays = 10
     n_trials = 3*n_rays
     n_saved = 0
     
