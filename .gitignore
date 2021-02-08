@@ -1,0 +1,4 @@
+syntax: glob
+*.h5
+*.tar
+*.swp
