@@ -9,9 +9,21 @@ import os
 from matplotlib import pyplot as plt
 
 '''
+When I originally ran `one_zone.py`, I set the ion_balance table to use 
+hm2012_ss_hr.h5 (the self-shielding Cloudy table) instead of hm2012_hr.h5
+(the simpler non-self-shielding cloudy table).  See: 
+http://trident-project.org/data/ion_table/ for the tables and
+https://trident.readthedocs.io/en/latest/installation.html#manually-installing-your-ionization-table
+for an explanation.  The observers encountered some weird behavior in trying
+to model the column densities that we sent to them, so I agreed to 
+investigate whether or not the self-shielding table affected these results 
+much.  This program is the result of those analyses.
+
 This program reads in the N density, temperature, metallicity, and redshift
 values from the observers_file.h5 and calculates column density values for 
-the various COS ions using the non-self-shielding ion_balance data table.
+the various COS ions using the non-self-shielding ion_balance data table, 
+assuming you've changed your active ion_balance table to the non-self-shielding
+version.  Go to $/.trident/config.tri to change it..
 
 It then compares these new values with the results from the self-shielding 
 ion_balance data table outputs, since those were the ones used in the 
@@ -191,13 +203,11 @@ if __name__ == '__main__':
     
     fig, axs = plt.subplots(6, 2)
     for j, ion in enumerate(ions):
-        #import pdb; pdb.set_trace()
         x = int(j / 2)
         y = j % 2
         x_axis = range(len(ions))
         axs[x, y].plot(np.log10(column_arr[j,:]), 'ko') # Black Non-SS
         axs[x, y].plot(np.log10(column_arr_old[j,:]), 'bo') # Blue SS
-        #axs[x, y].semilogy(x_axis, column_arr[j,:])
         axs[x, y].text(0.8, 0.8, ion, transform=axs[x,y].transAxes)
 
     axs[5,1].text(0.1, 0.5, 'Self-Shield', color='blue')
