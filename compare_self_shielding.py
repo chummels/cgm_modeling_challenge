@@ -215,4 +215,4 @@ if __name__ == '__main__':
     for ax in axs.flat:
         ax.label_outer()
     fig.tight_layout()
-    plt.savefig('plot.pdf')
+    plt.savefig('compare_self_shielding.pdf')
