@@ -144,10 +144,12 @@ if __name__ == '__main__':
     ds_props = ['H_density', 'density', 'temperature', 'metallicity', 'HI_column', 'length', 'redshift']
     ds_props_units = ['cm**-3', 'g*cm**-3', 'K', 'Zsun', 'cm**-2', 'kpc', ''] 
 
+    m_hydrogen = 1.6605402e-24 * u.g
+    redshift = 0.25
+
     # Read in values from HDF5 file for dataset properties and for 
     # ion column densities calculated with self-shielding table
     column_arr_old, ds_arr_old = input_observers_file(fn, ions, ds_props)
-    import pdb; pdb.set_trace()
 
     # Initialize arrays to store all the column density data and field 
     # information for the datasets:
@@ -163,7 +165,7 @@ if __name__ == '__main__':
     # sampled densities, temperatures, metallicities, and HI_column_densities
     # to calculate one-zone dataset
 
-    for i in range(10):
+    for i in range(n_rays):
     
         # First, let's create a one-zone dataset for our desired density,
         # temperature, metallicity, and redshift, drawing from the old values
@@ -179,3 +181,28 @@ if __name__ == '__main__':
     
         # Print out the dataset to STDOUT
         print_dataset(ray, ions, fields)
+
+        # Store new data in column_arr and ds_arr
+        store_dataset(i, ray, ions, fields, column_arr, ds_arr)
+        
+    # Make a plot comparing the column densities for each ion from the 
+    # "old" data from the HDF5 file (self shielding) vs the "new" data
+    # using the non-SS ion balance table
+    
+    fig, axs = plt.subplots(6, 2)
+    for j, ion in enumerate(ions):
+        #import pdb; pdb.set_trace()
+        x = int(j / 2)
+        y = j % 2
+        x_axis = range(len(ions))
+        axs[x, y].plot(np.log10(column_arr[j,:]), 'ko') # Black Non-SS
+        axs[x, y].plot(np.log10(column_arr_old[j,:]), 'bo') # Blue SS
+        #axs[x, y].semilogy(x_axis, column_arr[j,:])
+        axs[x, y].text(0.8, 0.8, ion, transform=axs[x,y].transAxes)
+
+    axs[5,1].text(0.1, 0.5, 'Self-Shield', color='blue')
+    axs[5,1].text(0.5, 0.5, 'No Self-Shield', color='black')
+    for ax in axs.flat:
+        ax.label_outer()
+    fig.tight_layout()
+    plt.savefig('plot.pdf')
