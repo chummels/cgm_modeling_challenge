@@ -1,0 +1,81 @@
+########################################################################
+[DEFAULT]
+########################################################################
+# This section named "[DEFAULT]" contains the majority of
+# parameters used in the analysis.
+
+# Overall
+seed = 15286
+
+# Filetree
+code_dir = /Users/zhafen/repos/cgm_modeling_challenge
+root_data_dir = ${code_dir}/data/trove
+
+# Comparison parameters
+weighting = 'NHI'
+sim_weighting = 'NHI'
+selected_sightlines = [
+    3,
+    5,
+    7,
+    8,
+    11,
+    12,
+    14,
+    15,
+    16,
+    19,
+    ]
+
+# Tweaks
+bar_format = '{desc:<5.5}{percentage:3.0f}%|{bar:10}{r_bar}'
+
+########################################################################
+[SCRIPTS]
+########################################################################
+# This section named "[SCRIPTS]" contains code that will be run.
+# Code will be run in order listed.
+# The prefix determines how the code will be handled.
+
+# Generate sample2
+nb.1 = ${code_dir}/generate_sample2.ipynb
+
+# Compare sample2
+nb.2 = ${code_dir}/sample2_comparison.ipynb
+
+########################################################################
+[DATA PRODUCTS]
+########################################################################
+# This section helps convert existing pipelines to trove pipelines.
+# In particular it will check if the data products exist and mark that part
+# of the trove as complete if they do.
+
+nb.1 = executed_generate_sample2.ipynb
+nb.2 = executed_sample2_comparison.ipynb
+
+########################################################################
+# Parameter Variations
+########################################################################
+# These sections are variations on the parameters to explore.
+# Each will create a trove of data.
+# The section name should be the identifier you would
+# like to use for that set of parameters.
+
+[sample2]
+redshift = 0.13
+bonus_ions_lsf_fwhm = 15.
+
+[sample2-high-z]
+redshift = 2.
+bonus_ions_lsf_fwhm = 7.
+
+
+########################################################################
+# Global variations
+########################################################################
+
+# Change the central indices
+[unweighted]
+global = True
+weighting = None
+sim_weighting = None
