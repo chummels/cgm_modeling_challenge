@@ -12,6 +12,14 @@ code_dir = /Users/zhafen/repos/cgm_modeling_challenge
 root_data_dir = ${code_dir}/data/trove/sample2
 figure_dir = /Users/zhafen/paper_repos/cgm_modeling_challenge_paper/figures/sample0
 
+# Generation parameters
+redshift = 0.13
+flux_error = None
+use_avg_lsf = True
+include_individual_HI_lines = False
+bonus_ions_lsf_fwhm = None
+bonus_ions = []
+
 # Comparison parameters
 weighting = 'NHI'
 sim_weighting = 'NHI'
@@ -37,6 +45,9 @@ n_bins_data_2D = 20
 # Tweaks
 bar_format = '{desc:<5.5}{percentage:3.0f}%|{bar:10}{r_bar}'
 background_linecolor = '.6'
+
+# Modeling parameters
+modeled_data_format = 'v0'
 
 ########################################################################
 [SCRIPTS]
@@ -70,12 +81,24 @@ nb.2 = executed_sample2_comparison.ipynb
 # like to use for that set of parameters.
 
 [original]
-redshift = 0.13
-bonus_ions_lsf_fwhm = None
-bonus_ions = []
+
+[smaller_flux_error]
+flux_error = 0.01
+
+[individual_lsfs]
+flux_error = 0.01
+use_avg_lsf = False
+
+[individual_HI_lines]
+flux_error = 0.01
+use_avg_lsf = False
+bonus_ions_lsf_fwhm = 15.
+include_individual_HI_lines = True
 
 [revised]
-redshift = 0.13
+flux_error = 0.01
+use_avg_lsf = False
+include_individual_HI_lines = True
 bonus_ions_lsf_fwhm = 15.
 bonus_ions = [
     ( 'C', 'III' ),
@@ -84,6 +107,9 @@ bonus_ions = [
     ]
 
 [high-z]
+flux_error = 0.01
+use_avg_lsf = False
+include_individual_HI_lines = True
 redshift = 2.
 bonus_ions_lsf_fwhm = 7.
 bonus_ions = [
@@ -103,6 +129,34 @@ bonus_ions = [
     ( 'Mg', 'X' ),
     ( 'Ne', 'VIII' ),
     ]
+    
+[proposal]
+flux_error = 0.01
+use_avg_lsf = False
+include_individual_HI_lines = True
+redshift = 2.
+bonus_ions_lsf_fwhm = 7.
+bonus_ions = [
+    ( 'H', 'I' ),
+    ( 'Si', 'II' ),
+    ( 'Si', 'III' ),
+    ( 'O', 'VI' ),
+    ( 'N', 'V' ),
+    ( 'N', 'II' ),
+    ( 'Si', 'II' ),
+    ( 'C', 'II' ),
+    ( 'Si', 'IV' ),
+    ( 'O', 'I' ),
+    ( 'C', 'IV' ),
+    ( 'Fe', 'II' ),
+    ( 'C', 'III' ),
+    ( 'Mg', 'X' ),
+    ( 'Ne', 'VIII' ),
+    ]
+selected_sightlines = [
+    3,
+    ]
+modeled_data_format = 'v1'
 
 ########################################################################
 # Global variations
@@ -113,7 +167,7 @@ global = True
 weighting = None
 sim_weighting = None
 
-[low-res]
+[test]
 global = True
 n_bins_convolve = 16
 n_sample_turb = 10
@@ -121,8 +175,33 @@ n_bins_1D = 16
 n_bins_data_1D = 16
 n_bins_2D = 16
 n_bins_data_2D = 10
-# selected_sightlines = [
-#     3,
+selected_sightlines = [
+    3,
 #     15,
-#     ]
+    ]
 show_plots_in_nb = True
+n_sightlines = 1
+
+########################################################################
+[EXECUTE]
+########################################################################
+
+scripts = [
+    'nb.1',
+#     'nb.2',
+    ]
+    
+variations = [
+    'original',
+    'smaller_flux_error',
+    'individual_lsfs',
+    'individual_HI_lines',
+    'revised',
+    'high-z',
+    ]
+    
+global_variations = [
+    # '',
+    # 'unweighted',
+    'test',
+    ]
