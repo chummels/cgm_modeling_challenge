@@ -9,8 +9,10 @@ seed = 15286
 
 # Filetree
 code_dir = /Users/zhafen/analysis/cgm_modeling_challenge
-root_data_dir = /Users/zhafen/data/cgm_modeling_challenge/sample2
+root_data_dir = /Users/zhafen/analysis/cgm_modeling_challenge/data/synthetic_data/sample2
+results_dir = /Users/zhafen/analysis/cgm_modeling_challenge/data/modeling_results/sameer_charlton/sample2
 figure_dir = /Users/zhafen/drafts/cgm_modeling_challenge_paper/figures/sample2
+polished_data_dir = /Users/zhafen/drafts/cgm_modeling_challenge_paper/polished_data/sample2
 
 # Generation parameters
 redshift = 0.13
@@ -132,6 +134,7 @@ bonus_ions = [
     ( 'Mg', 'X' ),
     ( 'Ne', 'VIII' ),
     ]
+modeled_data_format = 'v2'
 
 [high-z-alt]
 flux_error = 0.01
@@ -205,10 +208,11 @@ n_bins_2D = 16
 n_bins_data_2D = 10
 selected_sightlines = [
     3,
-#     15,
+    15,
     ]
 show_plots_in_nb = True
 n_sightlines = 1
+polished_data_dir = /Users/zhafen/Downloads
 
 ########################################################################
 [EXECUTE]
