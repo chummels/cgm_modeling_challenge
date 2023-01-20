@@ -34,3 +34,32 @@ for key, item in property_labels.items():
     unitless_label = item.split( '[' )[0]
     correlation_coefficient_property_labels[key] = r'$r($ ' + unitless_label + r'$)$'
 correlation_coefficient_property_labels['all'] = r'$r($ all $)$'
+
+lims = {
+    'vlos': [ -300, 300 ],
+    'T': [ 1e2, 2.5e6 ],
+    'nH': [ 1e-7, 100 ],
+    'Z': [ 1e-3, 30 ],
+    'NHI': [ 1e9, 1e17 ],
+}
+lims_1D = {
+    'vlos': [ 3e9, 2e16 ],
+    'T': [ 1e12, 1e20 ],
+    'nH': [ 1e12, 1e20 ],
+    'Z': [ 1e12, 1e20 ],
+    'NHI': [ 1e12, 1e20 ],
+}
+autolims = {
+    'vlos': False,
+    'T': False,
+    'nH': False,
+    'Z': False,
+    'NHI': False,
+}
+logscale = {
+    'vlos': False,
+    'T': True,
+    'nH': True,
+    'Z': True,
+    'NHI': True,
+}
