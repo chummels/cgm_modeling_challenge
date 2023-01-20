@@ -13,6 +13,7 @@ root_data_dir = /Users/zhafen/analysis/cgm_modeling_challenge/data/synthetic_dat
 results_dir = /Users/zhafen/analysis/cgm_modeling_challenge/data/modeling_results/sameer_charlton/sample2
 figure_dir = /Users/zhafen/drafts/cgm_modeling_challenge_paper/figures/sample2
 polished_data_dir = /Users/zhafen/drafts/cgm_modeling_challenge_paper/polished_data/sample2
+public_label = 'this is placeholder text'
 
 # Generation parameters
 redshift = 0.13
@@ -85,6 +86,7 @@ nb.2 = executed_sample2_comparison.ipynb
 # like to use for that set of parameters.
 
 [original]
+public_label = 'modeled'
 
 [smaller_flux_error]
 flux_error = 0.01
@@ -135,6 +137,7 @@ bonus_ions = [
     ( 'Ne', 'VIII' ),
     ]
 modeled_data_format = 'v2'
+public_label = 'revised'
 
 [high-z-alt]
 flux_error = 0.01
