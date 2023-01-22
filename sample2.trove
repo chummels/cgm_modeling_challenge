@@ -51,7 +51,7 @@ bar_format = '{desc:<5.5}{percentage:3.0f}%|{bar:10}{r_bar}'
 background_linecolor = '.6'
 
 # Modeling parameters
-modeled_data_format = 'v0'
+estimated_data_format = 'v0'
 
 ########################################################################
 [SCRIPTS]
@@ -135,7 +135,7 @@ bonus_ions = [
     ( 'Mg', 'X' ),
     ( 'Ne', 'VIII' ),
     ]
-modeled_data_format = 'v2'
+estimated_data_format = 'v2'
 public_label = 'revised'
 
 [high-z-alt]
@@ -189,7 +189,7 @@ bonus_ions = [
 selected_sightlines = [
     3,
     ]
-modeled_data_format = 'v1'
+estimated_data_format = 'v1'
 
 ########################################################################
 # Global variations

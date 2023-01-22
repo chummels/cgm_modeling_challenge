@@ -1,10 +1,10 @@
 import palettable
 
 # Colors to use throughout for revised vs original
-modeled_color = palettable.cartocolors.qualitative.Safe_10.mpl_colors[1]
+blinded_color = palettable.cartocolors.qualitative.Safe_10.mpl_colors[1]
 revised_color = palettable.cartocolors.qualitative.Safe_10.mpl_colors[0]
 colors_for_variations = {
-    'original': modeled_color,
+    'original': blinded_color,
     'high-z': revised_color,
 }
 
