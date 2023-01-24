@@ -35,6 +35,15 @@ for key, item in property_labels.items():
     correlation_coefficient_property_labels[key] = r'$r($ ' + unitless_label + r'$)$'
 correlation_coefficient_property_labels['all'] = r'$r($ all $)$'
 
+# Argument for correlation coefficients, corresponding to names
+correlation_coefficients = {
+    'one-sided': {},
+    'log one-sided': { 'logscale': True, 'subtract_mean': True },
+    'two-sided': { 'one_sided': False, },
+    'linear': { 'one_sided': False, 'subtract_mean': True },
+    'log': { 'logscale': True, 'one_sided': False, 'subtract_mean': True },
+}
+
 lims = {
     'vlos': [ -300, 300 ],
     'T': [ 1e2, 2.5e6 ],
@@ -63,3 +72,10 @@ logscale = {
     'Z': True,
     'NHI': True,
 }
+
+# Figure dimensions
+figure_width = 8. # Default figure width
+figure_height = figure_width / 2.
+
+# Plot elements
+violin_width = 0.75 # In units of distance between violins
