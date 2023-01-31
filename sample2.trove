@@ -13,6 +13,7 @@ root_data_dir = /Users/zhafen/analysis/cgm_modeling_challenge/data/synthetic_dat
 results_dir = /Users/zhafen/analysis/cgm_modeling_challenge/data/modeling_results/sameer_charlton/sample2
 figure_dir = /Users/zhafen/drafts/cgm_modeling_challenge_paper/figures/sample2
 polished_data_dir = ${code_dir}/data/polished_data/sample2
+summary_data_fp = './data/polished_data/summary.h5'
 public_label = 'this is placeholder text'
 
 # Generation parameters
