@@ -71,18 +71,18 @@ correlation_coefficients = {
 }
 
 lims = {
-    'vlos': [ -300, 300 ],
+    'vlos': [ -75, 75 ],
     'T': [ 1e2, 2.5e6 ],
     'nH': [ 1e-7, 100 ],
     'Z': [ 1e-3, 30 ],
     'NHI': [ 1e9, 1e17 ],
 }
 lims_1D = {
-    'vlos': [ 3e9, 1e17 ],
-    'T': [ 1e12, 1e20 ],
+    'vlos': [ 3e9, 1e19 ],
+    'T': [ 1e12, 3e20 ],
     'nH': [ 1e12, 1e20 ],
     'Z': [ 1e12, 1e20 ],
-    'NHI': [ 1e12, 1e20 ],
+    'NHI': [ 1e12, 3e20 ],
 }
 autolims = {
     'vlos': False,
