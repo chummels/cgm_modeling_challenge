@@ -108,3 +108,6 @@ lightest_textcolor = '0.6'
 
 # Plot elements
 violin_width = 0.75 # In units of distance between violins
+
+def percentile_str_fn( fraction ):
+    return '{:.1f}'.format( fraction * 100 )
