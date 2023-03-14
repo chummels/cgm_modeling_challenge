@@ -40,12 +40,12 @@ selected_sightlines = [
     16,
     19,
     ]
-n_bins_convolve = 64
+n_bins_convolve = 16
 n_sample_turb = 1000
 n_bins_1D = 128
-n_bins_data_1D = 128
-n_bins_2D = 32
-n_bins_data_2D = 20
+n_bins_data_1D = 32
+n_bins_2D = 16
+n_bins_data_2D = 10
 
 # Tweaks
 bar_format = '{desc:<5.5}{percentage:3.0f}%|{bar:10}{r_bar}'
@@ -216,6 +216,12 @@ selected_sightlines = [
 show_plots_in_nb = True
 n_sightlines = 1
 polished_data_dir = /Users/zhafen/Downloads
+
+[highres_2D_images_and_convolution]
+global = True
+n_bins_convolve = 64
+n_bins_2D = 32
+n_bins_data_2D = 20
 
 ########################################################################
 [EXECUTE]
