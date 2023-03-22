@@ -43,9 +43,9 @@ selected_sightlines = [
 n_bins_convolve = 16
 n_sample_turb = 1000
 n_bins_1D = 128
-n_bins_data_1D = 32
-n_bins_2D = 16
-n_bins_data_2D = 10
+n_bins_data_1D = 50
+n_bins_2D = 24
+n_bins_data_2D = 32
 
 # Tweaks
 bar_format = '{desc:<5.5}{percentage:3.0f}%|{bar:10}{r_bar}'
@@ -201,6 +201,11 @@ global = True
 weighting = None
 sim_weighting = None
 
+[OVI_weighting]
+global = True
+weighting = NOVI
+sim_weighting = NOVI
+
 [test]
 global = True
 n_bins_convolve = 16
@@ -208,7 +213,8 @@ n_sample_turb = 10
 n_bins_1D = 16
 n_bins_data_1D = 16
 n_bins_2D = 16
-n_bins_data_2D = 10
+# n_bins_data_2D = 10
+n_bins_data_2D = 32
 selected_sightlines = [
     3,
     15,
