@@ -52,14 +52,26 @@ property_labels_no_units = {
     'NHI': r'$N_{\rm H\,I}$',
     'x': r'$x$',
 }
-property_labels_1D = {
-    'vlos': r'$\frac{ d N_{\rm H\,I} }{d v_{\rm LOS}}$',
-    'T': r'$\frac{ d N_{\rm H\,I} }{d \log T}$',
-    'nH': r'$\frac{ d N_{\rm H\,I} }{d \log n_{\rm H}}$',
-    'Z': r'$\frac{ d N_{\rm H\,I} }{d \log Z}$',
-    'NHI': r'$\frac{ d N_{\rm H\,I} }{d \log N_{\rm H\,I}}$',
-    'x': r'$\frac{ d N_{\rm H\,I} }{dx}$',
+property_label_ends_1D = {
+    'vlos': r' }{d v_{\rm LOS}}$',
+    'T': r' }{d \log T}$',
+    'nH': r' }{d \log n_{\rm H}}$',
+    'Z': r' }{d \log Z}$',
+    'NHI': r' }{d \log N_{\rm H\,I}}$',
+    'x': r' }{dx}$',
 }
+
+
+weighting_labels = {
+    'NHI': r'N_{\rm H\,I}',
+    None: r'N_{\rm H}',
+}
+
+def property_labels_1D( prop_key, weighting ):
+    
+    return r'$\frac{ d ' + weighting_labels[weighting] + property_label_ends_1D[prop_key]
+    
+    
 correlation_coefficient_property_labels = {}
 for key, item in property_labels.items():
     unitless_label = item.split( '[' )[0]
@@ -84,7 +96,8 @@ lims = {
     'x': [ -15, 15 ],
 }
 lims_1D = {
-    'vlos': [ 3e9, 1e19 ],
+    # 'vlos': [ 3e9, 1e19 ],
+    'vlos': [ 1e10, 1e18 ],
     'T': [ 1e12, 3e20 ],
     'nH': [ 1e12, 1e20 ],
     'Z': [ 1e12, 1e20 ],

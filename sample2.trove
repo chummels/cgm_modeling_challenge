@@ -43,7 +43,7 @@ selected_sightlines = [
 n_bins_convolve = 16
 n_sample_turb = 1000
 n_bins_1D = 128
-n_bins_data_1D = 50
+n_bins_data_1D = 32
 n_bins_2D = 24
 n_bins_data_2D = 32
 
@@ -86,7 +86,7 @@ nb.2 = executed_sample2_comparison.ipynb
 # like to use for that set of parameters.
 
 [original]
-public_label = 'blinded'
+public_label = 'original blinded'
 
 [smaller_flux_error]
 flux_error = 0.01
@@ -137,7 +137,7 @@ bonus_ions = [
     ( 'Ne', 'VIII' ),
     ]
 estimated_data_format = 'v2'
-public_label = 'revised'
+public_label = 'rerun'
 
 [high-z-alt]
 flux_error = 0.01
