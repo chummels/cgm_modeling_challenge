@@ -41,11 +41,13 @@ selected_sightlines = [
     19,
     ]
 n_bins_convolve = 16
-n_sample_turb = 1000
+n_sample_turb = 100
 n_bins_1D = 128
 n_bins_data_1D = 32
 n_bins_2D = 24
 n_bins_data_2D = 32
+model_broadening = 'turbulent'
+sim_broadening = None
 
 # Tweaks
 bar_format = '{desc:<5.5}{percentage:3.0f}%|{bar:10}{r_bar}'
@@ -62,10 +64,13 @@ estimated_data_format = 'v0'
 # The prefix determines how the code will be handled.
 
 # Generate sample2
-nb.1 = ${code_dir}/generate_sample2.ipynb
+# nb.1 = ${code_dir}/generate_sample2.ipynb
 
 # Compare sample2
 nb.2 = ${code_dir}/sample2_comparison.ipynb
+
+# Synthesize comparison
+nb.3 = ${code_dir}/sample2_synthesis.ipynb
 
 ########################################################################
 [DATA PRODUCTS]
@@ -200,6 +205,15 @@ estimated_data_format = 'v1'
 global = True
 weighting = None
 sim_weighting = None
+
+[high_n_sample_turb]
+global = True
+n_sample_turb = 1000
+
+[thermally_broadened]
+global = True
+model_broadening = 'combined'
+sim_broadening = 'thermal'
 
 [OVI_weighting]
 global = True
